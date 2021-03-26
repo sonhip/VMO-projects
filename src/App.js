@@ -1,18 +1,39 @@
+import React, {lazy, Suspense } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import Navbar from './components/navbar';
+
 import './App.css';
+
+const Counter = lazy(() => import ('./components/pages/counter/index'));
+const Calculator = lazy(() => import ('./components/pages/calculator/index'));
+const TodoList = lazy(() => import ('./components/pages/todo-list/index'));
+const RandomQuotes = lazy(() => import ('./components/pages/random-quotes/index'));
 
 function App() {
   return (
-    <div className="App">
-      <h2 className='bg-indigo-100 uppercase' >Hello world!</h2>
-      <h2 className='bg-indigo-200 uppercase' >Hello world!</h2>
-      <h2 className='bg-indigo-300 uppercase' >Hello world!</h2>
-      <h2 className='bg-indigo-400 uppercase' >Hello world!</h2>
-      <h2 className='bg-indigo-500 uppercase' >Hello world!</h2>
-      <h2 className='bg-indigo-600 uppercase' >Hello world!</h2>
-      <h2 className='bg-indigo-700 uppercase' >Hello world!</h2>
-      <h2 className='bg-indigo-800 uppercase' >Hello world!</h2>
-      <h2 className='bg-indigo-900 uppercase' >Hello world!</h2>
-    </div>
+      <Router>
+          <Suspense fallback={<h2>Loading...</h2>}>
+             <Navbar/>
+                <Switch>
+                    <Route exact path="/">
+                      <Counter/>
+                    </Route>
+                    <Route path="/random-quotes">
+                      <RandomQuotes/>
+                    </Route>
+                    <Route path="/todo-list">
+                      <TodoList/>
+                    </Route>
+                    <Route path="/calculator">
+                      <Calculator/>
+                    </Route>
+                </Switch>
+          </Suspense>
+      </Router>
   );
 }
 
