@@ -4,7 +4,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import Navbar from './components/navbar';
+import Navbar from './components/navbar/navbar';
 
 import './App.css';
 
@@ -18,20 +18,22 @@ function App() {
       <Router>
           <Suspense fallback={<h2>Loading...</h2>}>
              <Navbar/>
+               <div className='h-screen bg-green-200 pt-16'>
                 <Switch>
-                    <Route exact path="/">
-                      <Counter/>
-                    </Route>
-                    <Route path="/random-quotes">
-                      <RandomQuotes/>
-                    </Route>
-                    <Route path="/todo-list">
-                      <TodoList/>
-                    </Route>
-                    <Route path="/calculator">
-                      <Calculator/>
-                    </Route>
-                </Switch>
+                      <Route exact path="/">
+                        <Counter/>
+                      </Route>
+                      <Route path="/random-quotes">
+                        <RandomQuotes/>
+                      </Route>
+                      <Route path="/todo-list">
+                        <TodoList/>
+                      </Route>
+                      <Route path="/calculator">
+                        <Calculator/>
+                      </Route>
+                  </Switch>
+               </div>
           </Suspense>
       </Router>
   );
