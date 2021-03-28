@@ -2,7 +2,7 @@ import React from 'react'
 import ResultComponent from './components/results';
 import ButtonComponent from  './components/button';
 
-export default function Counter() {
+const Counter = () => {
     return (
         <div className='w-64 flex flex-col mt-16 h-64 items-center m-auto bg-white rounded shadow-lg p-8 m-4'>
             <ResultComponent className="mt-4"/>
@@ -16,3 +16,4 @@ export default function Counter() {
         </div>
     )
 }
+export default React.memo(Counter);

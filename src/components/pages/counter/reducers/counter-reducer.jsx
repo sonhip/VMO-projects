@@ -1,11 +1,17 @@
 import * as types from '../actions/types';
 
-const initialState = {
-    count: 0
-}
+//get data counter
+var counterData = JSON.parse(localStorage.getItem("counter"));
+
+const initialState = counterData ? counterData : ({count: 0});
+
 
 export default function CounterReducer(state = initialState, action) {
-    let newState = JSON.parse(JSON.stringify(state)) ///deep copy object
+    const newState = JSON.parse(JSON.stringify(state)) ///deep copy object
+    //function save data to localStorage
+    const saveLocalStorage = () => {
+        localStorage.setItem("counter", JSON.stringify(newState));
+      };
     switch(action.type) {
         case types.INCREMENT:
             newState.count =  action.val +1;
@@ -19,5 +25,6 @@ export default function CounterReducer(state = initialState, action) {
         default: 
             break;
     }
+    saveLocalStorage();
     return newState;
 }
