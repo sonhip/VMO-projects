@@ -1,0 +1,12 @@
+.button_base {
+    font-family:'Share Tech Mono', Arial, Helvetica, sans-serif;
+    @apply h-16;
+    @apply bg-black-base;
+    @apply text-white;
+    &:hover {
+        @apply outline-grey;
+    }
+    &:focus {
+        @apply outline-grey;
+    }
+}

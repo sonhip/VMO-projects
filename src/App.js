@@ -18,7 +18,7 @@ function App() {
       <Router>
           <Suspense fallback={<h2>Loading...</h2>}>
              <Navbar/>
-               <div className='h-screen bg-green-200 pt-16'>
+               <div className='bg-green-200'>
                 <Switch>
                       <Route exact path="/">
                         <Counter/>

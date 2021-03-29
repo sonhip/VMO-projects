@@ -4,7 +4,8 @@ import ButtonComponent from  './components/button';
 
 const Counter = () => {
     return (
-        <div className='w-64 flex flex-col mt-16 h-64 items-center m-auto bg-white rounded shadow-lg p-8 m-4'>
+       <div className='counter h-screen flex items-center justify-center'>
+            <div className='w-64 flex flex-col h-64 items-center bg-white rounded shadow-lg p-8 m-4'>
             <ResultComponent className="mt-4"/>
             <div className="flex justify-around mt-8">
                 <ButtonComponent name = "increment">+</ButtonComponent>
@@ -14,6 +15,7 @@ const Counter = () => {
                 <ButtonComponent name = "reset">reset</ButtonComponent>
             </div>
         </div>
+       </div>
     )
 }
 export default React.memo(Counter);
