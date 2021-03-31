@@ -7,6 +7,8 @@ const Calculator = () => {
    const [state, setState] = useState({
       
    })
+   setState('a')
+   console.log(state);
 
    const handleClick = (char) => {
         
