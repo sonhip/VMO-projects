@@ -7,8 +7,12 @@ const HeaderTodo = () => {
     const dispatch = useDispatch();
     const handleClick = (e) => {
         e.preventDefault();
-        dispatch(addNewTask(input));
-        setInput('');
+        if(input === ''){
+            alert('please add a task before you add!')
+        }else {
+            dispatch(addNewTask(input));
+            setInput('');
+        }
     }
     return(
         <div className="flex justify-around items-end w-full border py-4 px-2">

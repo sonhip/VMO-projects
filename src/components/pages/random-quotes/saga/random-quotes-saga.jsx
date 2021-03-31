@@ -2,7 +2,7 @@ import {put, call, takeLatest} from 'redux-saga/effects';
 import * as actions from '../actions/index';
 import {GET_API_USER} from '../actions/types';
 import * as helper from '../../../../helpers/common';
-import {getDataQuotes} from '../service/api';
+import {getDataQuotes} from '../../../../services/api';
 
 function* quotesSaga() {
     try {

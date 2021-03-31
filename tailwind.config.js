@@ -17,12 +17,14 @@ module.exports = {
         }
       },
       outline: {
-        grey: '0.5px solid #666',
+        grey: '0.5px solid #999',
       }
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      outline:  ['hover']
+    },
   },
   plugins: [],
 }

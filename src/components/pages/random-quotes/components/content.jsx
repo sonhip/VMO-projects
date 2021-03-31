@@ -20,3 +20,8 @@ const Content = ({index, color}) => {
     )
 }
 export default Content;
+
+
+
+
+

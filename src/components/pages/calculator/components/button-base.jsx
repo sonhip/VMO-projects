@@ -1,9 +1,9 @@
 import React from 'react';
 import './main.scss';
 
-const ButtonBase = (props) => {
+const ButtonBase = ({handleClick, children}) => {
     return(
-        <button className="button_base">{props.children}</button>
+        <button onClick={(e) => handleClick(e.target.value)} value={children} className="button_base">{children}</button>
     )
 }
 
