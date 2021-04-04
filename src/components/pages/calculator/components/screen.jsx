@@ -1,11 +1,10 @@
 import React from 'react';
 
-const Screen = ({currentNumber}) => {
-    console.log(currentNumber)
+const Screen = ({screen, equal}) => {
     return (
         <div className="text-white text-right">
-            <p className='h-6 leading-5'>{currentNumber}</p>
-            <p className='text-2xl'>0</p>
+            <p className='overflow-hidden h-6 leading-5'>{screen}</p>
+            <p className='text-2xl'>{equal}</p>
         </div>
     )
 }
