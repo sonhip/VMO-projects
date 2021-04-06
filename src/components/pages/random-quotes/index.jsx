@@ -32,7 +32,7 @@ export default function RandomQuotes() {
 
     return (
         <div className='randomQuotes transition duration-1000 h-screen flex justify-center items-center' style={{backgroundColor: color}}>
-            <div className="bg-white rounded sm:w-1/3 flex flex-col items-center border-2 border-red-300">
+            <div className="bg-white rounded mb-16 sm:w-1/3 flex flex-col items-center border-2 border-red-300">
             <Content index={state} color={color} />
             <Button num = {luckyNumber} color={color}/>
             </div>

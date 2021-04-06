@@ -5,11 +5,11 @@ import * as filterActions from '../actions/index';
 const FooterTodo = () => {
     const dispatch = useDispatch();
     return(
-        <div className="flex justify-between w-full">
-            <button onClick={() => dispatch(filterActions.filterAll())} className="bg-green-500 font-bold px-2 py-4 rounded h-12 w-24 hover:bg-green-600 wrap text-sm">All</button>
-            <button onClick={() => dispatch(filterActions.filterCompleted())} className="bg-green-500 font-bold px-2 py-4 rounded h-12 w-24 hover:bg-green-600 wrap text-sm">Completed</button>
-            <button onClick={() => dispatch(filterActions.filterUncompleted())} className="bg-green-500 font-bold px-2 py-4 rounded h-12 w-24 hover:bg-green-600 wrap text-sm">Pending</button>
-            <button onClick={() => dispatch(filterActions.clearAllTask())} className="bg-green-500 font-bold px-2 py-4 rounded h-12 w-24 hover:bg-green-600 wrap text-sm">Clear All</button>
+        <div className="bg-purple-100 w-full h-32 wrap grid grid-cols-2 gap-2 justify-items-center py-8 content-center border-black">
+            <button onClick={() => dispatch(filterActions.filterAll())} className="bg-yellow-600 font-lighter w-28 rounded focus:outline-none h-10 hover:bg-yellow-700 wrap text-sm">All</button>
+            <button onClick={() => dispatch(filterActions.filterCompleted())} className="bg-yellow-600 font-lighter w-28 rounded focus:outline-none h-10 hover:bg-yellow-700 wrap text-sm">Completed</button>
+            <button onClick={() => dispatch(filterActions.filterUncompleted())} className="bg-yellow-600 font-lighter w-28 rounded focus:outline-none h-10 hover:bg-yellow-700 wrap text-sm">Pending</button>
+            <button onClick={() => dispatch(filterActions.clearAllTask())} className="bg-yellow-600 font-lighter w-28 rounded focus:outline-none h-10 hover:bg-yellow-700 wrap text-sm">Clear All</button>
         </div>
     )
 }

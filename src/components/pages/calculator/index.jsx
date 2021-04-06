@@ -31,12 +31,12 @@ const Calculator = () => {
                          if(k[i] === '*'){
                               const mul = k[i-1]* k[i+1];
                               k.splice(i-1, 3, mul);
-                              i=i-2;
+                              --i;
                          }else if(k[i] === '/'){
                               const quotient = k[i-1] / k[i+1];
                               quotient.toFixed(2);
                               k.splice(i-1, 3, quotient);
-                              i=i-2;
+                              --i;
                          }
                     }
                     let total = 0;
@@ -110,7 +110,7 @@ const Calculator = () => {
  
     return (
        <div className="h-screen flex justify-center items-center">
-            <div className="w-72 border-2 m-auto bg-black p-2">
+            <div className="w-72 m-auto bg-black p-2">
                 <Screen screen={screen}  equal={result} />
                 <WrapButtons handleClick={handleClick} />
             </div>

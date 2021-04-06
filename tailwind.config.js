@@ -14,6 +14,15 @@ module.exports = {
         },
         blue: {
           equal: '#004466'
+        },
+        purple: {
+          navbar: '#140039',
+          body: '#3F264D',
+          sub: '#201459',
+          todo: '#372669'
+        },
+        orange: {
+          primary: '#FF7200'
         }
       },
       outline: {
@@ -23,7 +32,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      outline:  ['hover']
+      outline:  ['hover','active'],
+      backgroundColor: ['active']
     },
   },
   plugins: [],

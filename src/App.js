@@ -1,8 +1,9 @@
-import React, {lazy, Suspense } from "react";
+import React, {lazy, Suspense, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
 } from "react-router-dom";
 import Navbar from './components/navbar/navbar';
 
@@ -13,23 +14,30 @@ const Calculator = lazy(() => import ('./components/pages/calculator/index'));
 const TodoList = lazy(() => import ('./components/pages/todo-list/index'));
 const RandomQuotes = lazy(() => import ('./components/pages/random-quotes/index'));
 
+
 function App() {
+  const [flag, setFlag] = useState(null);
+
+  const handleModal = (click) => {
+    setFlag(click);
+  }
   return (
       <Router>
           <Suspense fallback={<h2>Loading...</h2>}>
-             <Navbar/>
-               <div className='bg-green-200'>
+             <Navbar checkModal = {handleModal}/>
+               <div className={flag ? `bg-purple-body` : `bg-purple-body opacity-50 cursor-not-allowed pointer-events-none`}>
+               <Redirect from='/' to='/Counter' />
                 <Switch>
-                      <Route exact path="/">
+                      <Route exact path="/Counter">
                         <Counter/>
                       </Route>
-                      <Route path="/random-quotes">
+                      <Route path="/Random Quotes">
                         <RandomQuotes/>
                       </Route>
-                      <Route path="/todo-list">
+                      <Route path="/TodoList">
                         <TodoList/>
                       </Route>
-                      <Route path="/calculator">
+                      <Route path="/Calculator">
                         <Calculator/>
                       </Route>
                   </Switch>

@@ -5,7 +5,7 @@ const ResultComponent = () => {
     const state = useSelector(state => state.CounterReducer.count);
     return (
         <div>
-            <h1 className="font-bold text-2xl">{state}</h1>
+            <h1 className="font-bold text-2xl text-black">{state}</h1>
         </div>
     )
 }

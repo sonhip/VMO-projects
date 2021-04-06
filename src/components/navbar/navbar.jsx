@@ -1,18 +1,48 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {
-  Link
+    Link, useLocation
 } from "react-router-dom";
-export default function Navbar() {
+import Img from '../../img/VMO.PNG'
+export default function Navbar(props) {
+    const {pathname} = useLocation();
+    const [click, setClick] = useState(false);
+    const handleClick = () => setClick(!click);
+    props.checkModal(click)
     return (
-        <div className='flex justify-around items-center h-16 w-full bg-gray-700 fixed'>
-            <div>
-                {/* <img alt="VMO" className="flex" src='https://mail.google.com/mail/u/1?ui=2&ik=f1ea2efa92&attid=0.1&permmsgid=msg-f:1695004496030682881&th=1785dd9bce994f01&view=fimg&sz=s0-l75-ft&attbid=ANGjdJ_TLUbQ8udrp1C46Q5phWBGtQzByjQOCcDyl93qqNbUJbbYCIAUF8wIcwJ7afk6am5rbn0QwCgVjr7L_zc0p7rg_ROOzSajrUmGhqslRLCR-uIh99jvgyFG7y4&disp=emb'/> */}
+        <div className='flex relative justify-between lg:justify-around flex items-center h-16 w-full z-10 bg-purple-navbar fixed'>
+            <div className='not-sr-only lg:sr-only'>
+                {click ? (
+                    <button onClick={handleClick}>
+                        <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                ) : (
+                    <button onClick={handleClick}>
+                        <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                )}   
             </div>
-            <div className="flex">
-                <Link className='font-bold text-gray-300 hover:text-white uppercase mx-8 my-2' to="/">Counter</Link>
-                <Link className='font-bold text-gray-300 hover:text-white uppercase mx-8 my-2' to="/random-quotes">Randomquotes</Link>
-                <Link className='font-bold text-gray-300 hover:text-white uppercase mx-8 my-2' to="/todo-list">TodoList</Link>
-                <Link className='font-bold text-gray-300 hover:text-white uppercase mx-8 my-2' to="/calculator">Calculator</Link>
+            <div>
+                <button className='w-32' href='!#'>
+                   <img src={Img} alt='vmo' />
+                </button>
+            </div>
+            <div className='lg:flex lg:justify-around lg:not-sr-only sr-only'>
+                 {['Counter', 'Random Quotes', 'TodoList', 'Calculator'].map((item, key) => {
+                    return (
+                        <div key={key}  className='flex flex-col'>
+                            <Link onClick={() => setClick(true)} className={`text-center font-bold text-gray-300 hover:text-white uppercase mx-8 my-2 `} to={`/${item}`}> <span className={`${pathname === `/${item}` ? 'border-b-4 transition delay-100 duration-700 ease-in-out border-orange-primary' : ''}`}>{item}</span> </Link>
+                        </div>
+                    )
+                })}
+            </div>
+            <div className='absolute top-full w-full bg-purple-navbar bg-purple-sub'>
+                 {['Counter', 'Random Quotes', 'TodoList', 'Calculator'].map((item, key) => {
+                    return (
+                        <div key={key}  className={click ? `sr-only` : `flex flex-col hover:bg-purple-600`}>
+                            <Link onClick={() => setClick(true)} className={`lg:sr-only text-center font-bold text-gray-200 uppercase mx-8 my-2 `} to={`/${item}`}> <span className={`${pathname === `/${item}` ? 'border-b-4 transition delay-100 duration-700 ease-in-out border-orange-primary' : ''}`}>{item}</span> </Link>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )
