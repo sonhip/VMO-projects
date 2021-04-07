@@ -13,6 +13,7 @@ const Counter = lazy(() => import ('./components/pages/counter/index'));
 const Calculator = lazy(() => import ('./components/pages/calculator/index'));
 const TodoList = lazy(() => import ('./components/pages/todo-list/index'));
 const RandomQuotes = lazy(() => import ('./components/pages/random-quotes/index'));
+const Login = lazy(() => import ('./components/pages/login/login-form'));
 
 
 function App() {
@@ -39,6 +40,9 @@ function App() {
                       </Route>
                       <Route path="/Calculator">
                         <Calculator/>
+                      </Route>
+                      <Route path="/Login">
+                        <Login/>
                       </Route>
                   </Switch>
                </div>

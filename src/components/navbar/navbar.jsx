@@ -5,7 +5,7 @@ import {
 import Img from '../../img/VMO.PNG'
 export default function Navbar(props) {
     const {pathname} = useLocation();
-    const [click, setClick] = useState(false);
+    const [click, setClick] = useState(true);
     const handleClick = () => setClick(!click);
     props.checkModal(click)
     return (
@@ -27,7 +27,7 @@ export default function Navbar(props) {
                 </button>
             </div>
             <div className='lg:flex lg:justify-around lg:not-sr-only sr-only'>
-                 {['Counter', 'Random Quotes', 'TodoList', 'Calculator'].map((item, key) => {
+                 {['Counter', 'Random Quotes', 'TodoList', 'Calculator','Login'].map((item, key) => {
                     return (
                         <div key={key}  className='flex flex-col'>
                             <Link onClick={() => setClick(true)} className={`text-center font-bold text-gray-300 hover:text-white uppercase mx-8 my-2 `} to={`/${item}`}> <span className={`${pathname === `/${item}` ? 'border-b-4 transition delay-100 duration-700 ease-in-out border-orange-primary' : ''}`}>{item}</span> </Link>
