@@ -8,17 +8,17 @@ import Navbar from './components/navbar/navbar';
 
 import './App.css';
 
-const Counter = lazy(() => import ('./components/pages/counter/index'));
-const Calculator = lazy(() => import ('./components/pages/calculator/index'));
-const TodoList = lazy(() => import ('./components/pages/todo-list/index'));
-const RandomQuotes = lazy(() => import ('./components/pages/random-quotes/index'));
+const Counter = lazy(() => import ('./pages/counter/index'));
+const Calculator = lazy(() => import ('./pages/calculator/index'));
+const TodoList = lazy(() => import ('./pages/todo-list/index'));
+const RandomQuotes = lazy(() => import ('./pages/random-quotes/index'));
 
 function App() {
   return (
       <Router>
           <Suspense fallback={<h2>Loading...</h2>}>
              <Navbar/>
-               <div className='h-screen bg-green-200 pt-16'>
+               <div className='bg-green-200'>
                 <Switch>
                       <Route exact path="/">
                         <Counter/>

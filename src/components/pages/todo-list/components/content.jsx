@@ -5,7 +5,6 @@ import {deleteTask, editTask, completedTask} from '../actions/index';
 const ContentTodo = () => {
     const state = useSelector(state => state.TodoReducer);
     const dispatch = useDispatch();
-    console.log(state);
     return(
         <div className="flex flex-col w-full h-full overflow-y-scroll ">
             {state.map((item, index) => (
