@@ -17,7 +17,10 @@ export default function Navbar(props) {
     fire.auth().signOut();
     dispatch(actions.loginFail(false));
   };
-
+  const handleClickAndLogout = () => {
+    setClick(true);
+    handleLogout();
+  };
   return (
     <>
       {isLogin ? <Redirect to="/Counter" /> : null}
@@ -139,6 +142,26 @@ export default function Navbar(props) {
               );
             }
           )}
+          <div
+            className={click ? `sr-only` : `flex flex-col hover:bg-purple-600`}
+          >
+            {isLogin ? (
+              <Link
+                className={`lg:sr-only text-center font-bold hover:text-white hover:no-underline text-gray-200 capitalize mx-8 my-2 `}
+                onClick={handleClickAndLogout}
+              >
+                <span>Logout</span>
+              </Link>
+            ) : (
+              <Link
+                onClick={() => setClick(true)}
+                className={`lg:sr-only text-center font-bold hover:text-white hover:no-underline text-gray-200 capitalize mx-8 my-2 `}
+                to="/Login"
+              >
+                <span>Login</span>
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </>

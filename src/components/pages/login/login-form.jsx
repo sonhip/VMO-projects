@@ -108,9 +108,9 @@ const LoginForm = () => {
       {user ? (
         <></>
       ) : (
-        <div className="h-screen w-screen flex justify-center items-center">
-          <div className="mb-16">
-            <Grid>
+        <div className="h-screen w-screen flex justify-center items-center ">
+          <div className="mb-16 ">
+            <Grid className="">
               <Paper elevation={10} style={paperStyle}>
                 <Grid align="center">
                   <Avatar style={avatarStyle}>
