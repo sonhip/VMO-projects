@@ -25,7 +25,18 @@ function App() {
 
   return (
     <Router>
-      <Suspense fallback={<h2>Loading...</h2>}>
+      <Suspense
+        fallback={
+          <div class="min-h-screen flex flex-col justify-center items-center bg-black">
+            <h1 className="text-white font-bold text-5xl mb-8">Loading</h1>
+            <div class="loader bg-white p-5 rounded-full flex space-x-3">
+              <div class="w-5 h-5 bg-gray-800 rounded-full animate-spin origin-bottom "></div>
+              <div class="w-5 h-5 bg-gray-800 rounded-full animate-spin origin-right"></div>
+              <div class="w-5 h-5 bg-gray-800 rounded-full animate-spin origin-left"></div>
+            </div>
+          </div>
+        }
+      >
         <Navbar checkModal={handleModal} />
         <div
           className={
