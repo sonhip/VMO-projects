@@ -24,7 +24,7 @@ export default function Navbar(props) {
   return (
     <>
       {isLogin ? <Redirect to="/Counter" /> : null}
-      <div className="flex relative justify-between lg:justify-around flex items-center h-16 w-full z-10 bg-purple-navbar fixed">
+      <div className="flex relative justify-between lg:justify-around flex items-center h-16 w-full z-10 bg-purple-navbar fixed px-4">
         <div className="not-sr-only lg:sr-only">
           {click ? (
             <button onClick={handleClick}>

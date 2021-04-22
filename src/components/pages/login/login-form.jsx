@@ -26,8 +26,6 @@ const LoginForm = () => {
 
   const paperStyle = {
     padding: 20,
-    height: "50vh",
-    width: 420,
   };
   const avatarStyle = {
     backgroundColor: "#1f9ebb",
@@ -108,9 +106,9 @@ const LoginForm = () => {
       {user ? (
         <></>
       ) : (
-        <div className="h-screen w-screen flex justify-center items-center ">
-          <div className="mb-16 ">
-            <Grid className="">
+        <div className="h-screen flex justify-center items-center ">
+          <div className="mb-16 lg:w-1/4 sm:w-3/5 w-4/5">
+            <Grid className="w-full">
               <Paper elevation={10} style={paperStyle}>
                 <Grid align="center">
                   <Avatar style={avatarStyle}>
